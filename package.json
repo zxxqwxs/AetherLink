@@ -1,0 +1,40 @@
+{
+  "name": "aetherlink",
+  "version": "0.1.0",
+  "description": "A decentralized social trust protocol based on Zero-Knowledge Graph algorithms",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "circuits",
+    "frontend",
+    "subgraph"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:contracts && npm run install:frontend && npm run install:subgraph",
+    "install:contracts": "cd contracts && npm install",
+    "install:circuits": "cd circuits && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:subgraph": "cd subgraph && npm install",
+    "build": "npm run build:contracts && npm run build:circuits && npm run build:frontend",
+    "build:contracts": "cd contracts && npm run compile",
+    "build:circuits": "cd circuits && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "test": "npm run test:contracts",
+    "test:contracts": "cd contracts && npm run test"
+  },
+  "keywords": [
+    "blockchain",
+    "zero-knowledge",
+    "social-graph",
+    "privacy",
+    "ethereum",
+    "polygon",
+    "zk-proofs"
+  ],
+  "author": "AetherLink Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}
+
