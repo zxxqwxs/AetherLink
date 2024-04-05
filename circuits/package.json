@@ -1,0 +1,28 @@
+{
+  "name": "@aetherlink/circuits",
+  "version": "0.1.0",
+  "description": "Zero-knowledge circuits for AetherLink privacy-preserving relationship proofs",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:pathproof",
+    "build:pathproof": "circom src/pathProof.circom --r1cs --wasm --sym -o build",
+    "test": "node test/test.js",
+    "clean": "rm -rf build"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "circom",
+    "zk-proofs",
+    "privacy"
+  ],
+  "author": "AetherLink Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "circom": "^2.1.6",
+    "snarkjs": "^0.7.0"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5"
+  }
+}
+
