@@ -1,0 +1,26 @@
+{
+  "name": "@aetherlink/subgraph",
+  "version": "0.1.0",
+  "description": "The Graph indexer for AetherLink social graph protocol",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ aetherlink/social-graph",
+    "create-local": "graph create --node http://localhost:8020/ aetherlink/social-graph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 aetherlink/social-graph",
+    "test": "graph test"
+  },
+  "keywords": [
+    "thegraph",
+    "indexer",
+    "subgraph"
+  ],
+  "author": "AetherLink Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.56.0",
+    "@graphprotocol/graph-ts": "^0.31.0",
+    "matchstick-as": "^0.5.0"
+  }
+}
+

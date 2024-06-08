@@ -1,0 +1,62 @@
+type Node @entity {
+  id: ID!
+  address: Bytes!
+  metadata: String!
+  registeredAt: BigInt!
+  active: Boolean!
+  reputation: BigInt!
+  reputationLastUpdated: BigInt!
+  relationships: [Relationship!]! @derivedFrom(field: "from")
+  receivedRelationships: [Relationship!]! @derivedFrom(field: "to")
+  submittedProofs: [Proof!]! @derivedFrom(field: "prover")
+  reputationHistory: [ReputationHistory!]! @derivedFrom(field: "node")
+}
+
+type Relationship @entity {
+  id: ID!
+  from: Node!
+  to: Node!
+  edgeId: Bytes!
+  weight: BigInt!
+  relationshipHash: Bytes!
+  createdAt: BigInt!
+  active: Boolean!
+}
+
+type Proof @entity {
+  id: ID!
+  proofId: Bytes!
+  proofHash: Bytes!
+  prover: Node!
+  nodeA: Bytes
+  nodeB: Bytes
+  submittedAt: BigInt!
+  verified: Boolean!
+  verifiedAt: BigInt
+}
+
+type VerifiedConnection @entity {
+  id: ID!
+  nodeA: Bytes!
+  nodeB: Bytes!
+  proofId: Bytes!
+  verifiedAt: BigInt!
+}
+
+type ReputationHistory @entity {
+  id: ID!
+  node: Node!
+  oldScore: BigInt!
+  newScore: BigInt!
+  timestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type GlobalStats @entity {
+  id: ID!
+  totalNodes: BigInt!
+  totalRelationships: BigInt!
+  totalProofs: BigInt!
+  totalVerifiedProofs: BigInt!
+}
+
